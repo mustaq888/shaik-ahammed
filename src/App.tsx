@@ -817,10 +817,7 @@ export default function App() {
               <p className="text-2xl text-slate-400 mt-4">Any Questions?</p>
             </motion.div>
 
-            <div className="space-y-4 pt-12">
-              <p className="text-slate-500 uppercase tracking-widest text-sm font-bold">Connect with us</p>
-              
-            </div>
+            
 
             <div className="pt-20 text-slate-600 text-sm">
               <p>NIMRA COLLEGE OF ENGINEERING & TECHNOLOGY</p>

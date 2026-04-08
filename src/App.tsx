@@ -819,17 +819,7 @@ export default function App() {
 
             <div className="space-y-4 pt-12">
               <p className="text-slate-500 uppercase tracking-widest text-sm font-bold">Connect with us</p>
-              <div className="flex justify-center gap-6">
-                {[
-                  { icon: <Mail />, label: "Email", color: "hover:text-red-400" },
-                  { icon: <Linkedin />, label: "LinkedIn", color: "hover:text-blue-400" },
-                  { icon: <Github />, label: "GitHub", color: "hover:text-white" }
-                ].map((item, i) => (
-                  <button key={i} className={`p-4 rounded-full glass transition-all ${item.color} hover:scale-110`}>
-                    {item.icon}
-                  </button>
-                ))}
-              </div>
+              
             </div>
 
             <div className="pt-20 text-slate-600 text-sm">

@@ -28,7 +28,21 @@ import {
   ArrowRight,
   Monitor,
   Server,
-  Globe
+  Globe,
+  Users,
+  HardDrive,
+  Chrome,
+  GitBranch,
+  Workflow,
+  Box,
+  Share2,
+  FlaskConical,
+  ShieldCheck,
+  Terminal,
+  Settings,
+  Image,
+  ExternalLink,
+  Rocket
 } from 'lucide-react';
 
 // --- Components ---
@@ -209,8 +223,8 @@ export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const slides = [
     "title", "abstract", "problem", "objectives", "existing", 
-    "proposed", "architecture", "technologies", "modules", 
-    "implementation", "advantages", "future", 
+    "proposed", "feasibility", "architecture", "technologies", "modules", "requirements", "uml", "strategies", 
+    "implementation", "screenshots1", "screenshots2", "screenshots3", "deployment", "advantages", "future", 
     "conclusion", "thanks"
   ];
 
@@ -311,7 +325,7 @@ export default function App() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest border border-blue-500/20">
                   <Layout size={14} /> Overview
                 </div>
-                <h2 className="text-4xl md:text-5xl font-display font-bold">Abstract</h2>
+                <h2 className="text-4xl md:text-5xl font-display font-bold">INTRODUCTION</h2>
                 <p className="text-lg text-slate-400 leading-relaxed">
                   Online shopping is growing rapidly across the globe. Users typically face difficulty in finding the best product at the lowest price due to platform fragmentation. Our system helps users compare prices easily in one centralized place, integrating Machine Learning to improve accuracy and provide intelligent recommendations.
                 </p>
@@ -539,6 +553,49 @@ export default function App() {
           </div>
         </Slide>
 
+        {/* 6.5. FEASIBILITY STUDY */}
+        <Slide id="feasibility">
+          <div className="text-center space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-display font-bold">Feasibility Study</h2>
+              <p className="text-slate-400">Evaluating the project's viability</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Technical Feasibility",
+                  desc: "Python, Django, and BeautifulSoup are robust, well-documented, and perfectly suited for web scraping and backend management.",
+                  icon: <Cpu className="text-blue-400" />,
+                  color: "border-blue-500"
+                },
+                {
+                  title: "Economic Feasibility",
+                  desc: "The project utilizes open-source technologies, significantly reducing development costs while requiring minimal infrastructure.",
+                  icon: <TrendingUp className="text-green-400" />,
+                  color: "border-green-500"
+                },
+                {
+                  title: "Operational Feasibility",
+                  desc: "The intuitive UI ensures that users can easily navigate and compare prices without specialized training or technical knowledge.",
+                  icon: <Users className="text-purple-400" />,
+                  color: "border-purple-500"
+                }
+              ].map((item, i) => (
+                <div key={i} className={`glass-dark p-8 rounded-3xl border-t-4 ${item.color} space-y-6 hover:translate-y-[-8px] transition-all duration-300`}>
+                  <div className="mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold">{item.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Slide>
+
         {/* 7. SYSTEM ARCHITECTURE */}
         <Slide id="architecture">
           <div className="text-center space-y-12">
@@ -686,6 +743,181 @@ export default function App() {
           </div>
         </Slide>
 
+        {/* 9.5. SYSTEM REQUIREMENTS */}
+        <Slide id="requirements">
+          <div className="space-y-12 w-full max-w-6xl">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-center">System Requirements</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Hardware Requirements */}
+              <div className="glass-dark p-8 rounded-3xl border border-blue-500/20 space-y-8">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400">
+                    <Cpu size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold">Hardware Requirements</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {[
+                    { label: "Processor", value: "Intel Core i3 or higher", icon: <Cpu size={16} /> },
+                    { label: "RAM", value: "4GB or higher", icon: <Zap size={16} /> },
+                    { label: "Hard Disk", value: "500MB available space", icon: <HardDrive size={16} /> },
+                    { label: "Monitor", value: "Standard Resolution", icon: <Monitor size={16} /> }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center justify-between p-4 glass rounded-xl">
+                      <div className="flex items-center gap-3 text-slate-400">
+                        {item.icon}
+                        <span>{item.label}</span>
+                      </div>
+                      <span className="font-semibold text-blue-400">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Software Requirements */}
+              <div className="glass-dark p-8 rounded-3xl border border-purple-500/20 space-y-8">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-purple-500/20 text-purple-400">
+                    <Code2 size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold">Software Requirements</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {[
+                    { label: "Operating System", value: "Windows 10/11, macOS, Linux", icon: <Monitor size={16} /> },
+                    { label: "Web Browser", value: "Chrome, Firefox, Edge", icon: <Chrome size={16} /> },
+                    { label: "Environment", value: "Python 3.x, Django", icon: <Code2 size={16} /> },
+                    { label: "Database", value: "MySQL / MongoDB", icon: <Database size={16} /> }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center justify-between p-4 glass rounded-xl">
+                      <div className="flex items-center gap-3 text-slate-400">
+                        {item.icon}
+                        <span>{item.label}</span>
+                      </div>
+                      <span className="font-semibold text-purple-400">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Slide>
+
+        {/* 9.6. UML DIAGRAMS */}
+        <Slide id="uml">
+          <div className="space-y-12 w-full max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-center">UML Diagrams</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Use Case Diagram",
+                  desc: "Defines the interactions between users (Admin/User) and the system modules.",
+                  icon: <Users className="text-blue-400" />,
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775644065/Screenshot_2026-03-02_222820_rp6krz.png"
+                },
+                {
+                  title: "Class Diagram",
+                  desc: "Represents the static structure, showing classes, attributes, and relationships.",
+                  icon: <Box className="text-purple-400" />,
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775644072/Screenshot_2026-03-02_223229_oqve3v.png"
+                },
+                {
+                  title: "Sequence Diagram",
+                  desc: "Illustrates how objects interact in a sequential order over time.",
+                  icon: <Workflow className="text-green-400" />,
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775644079/Screenshot_2026-03-02_223250_dprlln.png"
+                }
+              ].map((item, i) => (
+                <div key={i} className="glass-dark p-6 rounded-3xl border border-white/5 space-y-6 flex flex-col items-center text-center group">
+                  <div className="p-3 rounded-2xl glass bg-white/5 group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">{item.title}</h3>
+                    <p className="text-xs text-slate-400 mt-1">{item.desc}</p>
+                  </div>
+                  <div className="w-full aspect-[4/3] rounded-xl overflow-hidden glass border border-white/10 relative">
+                    <img 
+                      src={item.img} 
+                      alt={item.title}
+                      className="w-full h-full object-contain bg-slate-900/50 group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Slide>
+
+        {/* 9.7. IMPLEMENTATION & TESTING STRATEGIES */}
+        <Slide id="strategies">
+          <div className="space-y-12 w-full max-w-6xl">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-center">Implementation & Testing</h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Implementation Phase */}
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold flex items-center gap-3 text-blue-400">
+                  <Settings /> Implementation Phase
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    { title: "Environment Setup", desc: "Configuring Python, Django, and necessary libraries (BeautifulSoup, Requests)." },
+                    { title: "Module Development", desc: "Developing Admin and User modules with secure authentication." },
+                    { title: "Database Integration", desc: "Setting up MySQL/MongoDB to store product and user data." },
+                    { title: "Scraper Integration", desc: "Connecting the web scraping scripts with the frontend UI." }
+                  ].map((item, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="glass p-5 rounded-2xl border-l-4 border-blue-500 hover:bg-white/10 transition-colors"
+                    >
+                      <h4 className="font-bold text-lg">{item.title}</h4>
+                      <p className="text-sm text-slate-400">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Testing Strategies */}
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold flex items-center gap-3 text-green-400">
+                  <FlaskConical /> Testing Strategies
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    { title: "Unit Testing", desc: "Testing individual functions and scraper scripts.", icon: <Terminal /> },
+                    { title: "Integration Testing", desc: "Ensuring smooth communication between modules.", icon: <Workflow /> },
+                    { title: "System Testing", desc: "Validating the complete system against requirements.", icon: <Monitor /> },
+                    { title: "UAT", desc: "User Acceptance Testing for final validation.", icon: <ShieldCheck /> }
+                  ].map((item, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="glass-dark p-6 rounded-3xl border border-white/5 flex flex-col items-center text-center gap-4 group hover:border-green-500/50 transition-all"
+                    >
+                      <div className="p-3 rounded-xl bg-green-500/10 text-green-400 group-hover:scale-110 transition-transform">
+                        {item.icon}
+                      </div>
+                      <h4 className="font-bold">{item.title}</h4>
+                      <p className="text-xs text-slate-500">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Slide>
+
         {/* 10. WORKING / IMPLEMENTATION */}
         <Slide id="implementation">
           <div className="text-center space-y-12">
@@ -716,6 +948,227 @@ export default function App() {
                 ))}
               </div>
             </div>
+          </div>
+        </Slide>
+
+        {/* 11. SCREENSHOTS - PART 1 */}
+        <Slide id="screenshots1">
+          <div className="text-center space-y-12 w-full max-w-6xl mx-auto">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter">System Screenshots <span className="text-blue-500">I</span></h2>
+              <p className="text-slate-400">Visual overview of the application interface</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { 
+                  title: "Sign Up Page", 
+                  desc: "Manage products and monitor system performance.", 
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775643105/Screenshot_2026-04-08_153653_wr70ze.png" 
+                },
+                { 
+                  title: "Login Page", 
+                  desc: "Intuitive search with real-time price comparison.", 
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775643117/Screenshot_2026-04-08_153713_i8date.png" 
+                }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.2 }}
+                  className="glass p-4 rounded-3xl space-y-4 group"
+                >
+                  <div className="relative aspect-video rounded-2xl overflow-hidden glass border border-white/10">
+                    <img 
+                      src={item.img} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                      <div className="flex items-center gap-2 text-blue-400">
+                        <Image size={20} />
+                        <span className="font-bold">Preview</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-left px-2">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-sm text-slate-400">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </Slide>
+
+        {/* 11.5. SCREENSHOTS - PART 2 */}
+        <Slide id="screenshots2">
+          <div className="text-center space-y-12 w-full max-w-6xl mx-auto">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter">System Screenshots <span className="text-blue-500">II</span></h2>
+              <p className="text-slate-400">Visual overview of the application interface</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { 
+                  title: "Product Comparison", 
+                  desc: "Detailed view of prices across multiple platforms.", 
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775643129/Screenshot_2026-04-08_153752_ksaomx.png" 
+                },
+                { 
+                  title: "Product Comparison", 
+                  desc: "Detailed view of prices across multiple platforms.", 
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775643139/Screenshot_2026-04-08_153828_ggmxsu.png" 
+                }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.2 }}
+                  className="glass p-4 rounded-3xl space-y-4 group"
+                >
+                  <div className="relative aspect-video rounded-2xl overflow-hidden glass border border-white/10">
+                    <img 
+                      src={item.img} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                      <div className="flex items-center gap-2 text-blue-400">
+                        <Image size={20} />
+                        <span className="font-bold">Preview</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-left px-2">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-sm text-slate-400">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </Slide>
+
+        {/* 11.7. SCREENSHOTS - PART 3 */}
+        <Slide id="screenshots3">
+          <div className="text-center space-y-12 w-full max-w-6xl mx-auto">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter">System Screenshots <span className="text-blue-500">III</span></h2>
+              <p className="text-slate-400">Visual overview of the application interface</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { 
+                  title: "Amazon", 
+                  desc: "Personalized user settings and preferences.", 
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775643147/Screenshot_2026-04-08_153901_qbztk5.png" 
+                },
+                { 
+                  title: "Flipkart", 
+                  desc: "Track and manage previous purchases.", 
+                  img: "https://res.cloudinary.com/ddin4maqc/image/upload/v1775643139/Screenshot_2026-04-08_153828_ggmxsu.png" 
+                }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.2 }}
+                  className="glass p-4 rounded-3xl space-y-4 group"
+                >
+                  <div className="relative aspect-video rounded-2xl overflow-hidden glass border border-white/10">
+                    <img 
+                      src={item.img} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                      <div className="flex items-center gap-2 text-blue-400">
+                        <Image size={20} />
+                        <span className="font-bold">Preview</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-left px-2">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-sm text-slate-400">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </Slide>
+
+        {/* 11.8. PROJECT DEPLOYMENT */}
+        <Slide id="deployment">
+          <div className="text-center space-y-12 w-full max-w-4xl mx-auto">
+            <div className="space-y-4">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto text-blue-400 mb-6"
+              >
+                <Rocket size={40} />
+              </motion.div>
+              <h2 className="text-4xl md:text-5xl font-display font-bold">Project Deployment</h2>
+              <p className="text-slate-400">The application is live and accessible online</p>
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="glass p-10 rounded-3xl border border-blue-500/30 bg-blue-500/5 space-y-8"
+            >
+              <div className="space-y-2">
+                <p className="text-sm text-blue-400 font-mono uppercase tracking-widest">Live URL</p>
+                <div className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-white break-all">
+                  <Globe className="text-blue-400 shrink-0" />
+                  <a 
+                    href="https://my-deen-journey.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-400 transition-colors underline decoration-blue-500/30 underline-offset-8"
+                  >
+                    https://my-deen-journey.vercel.app/
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">
+                <div className="space-y-1">
+                  <p className="text-blue-400 font-bold">Platform</p>
+                  <p className="text-slate-400 text-sm">Vercel / Cloud Run</p>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-blue-400 font-bold">Status</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <p className="text-slate-400 text-sm">Production Ready</p>
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-blue-400 font-bold">SSL</p>
+                  <p className="text-slate-400 text-sm">Secure (HTTPS)</p>
+                </div>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-8 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold flex items-center gap-2 mx-auto transition-all shadow-lg shadow-blue-500/25"
+                onClick={() => window.open('https://my-deen-journey.vercel.app/', '_blank')}
+              >
+                Launch Application <ExternalLink size={18} />
+              </motion.button>
+            </motion.div>
           </div>
         </Slide>
 
@@ -787,7 +1240,16 @@ export default function App() {
                 We have successfully developed an <span className="text-blue-400 font-bold">intelligent price comparison system</span> that significantly reduces user effort and time in finding the best deals. The platform provides a <span className="text-purple-400 font-bold">secure and reliable</span> environment for shopping and is highly scalable for future ML enhancements.
               </p>
               
-              
+              <div className="flex justify-center gap-8 pt-8 border-t border-white/10">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">100%</p>
+                  <p className="text-xs text-slate-500 uppercase tracking-widest">Accuracy</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">4x</p>
+                  <p className="text-xs text-slate-500 uppercase tracking-widest">Faster Search</p>
+                </div>
+                
               </div>
             </div>
           </div>
@@ -807,9 +1269,13 @@ export default function App() {
 
             
 
-            <div className="pt-20 text-slate-600 text-sm">
-              <p>NIMRA COLLEGE OF ENGINEERING & TECHNOLOGY</p>
-              <p>Department of Computer Science and Engineering</p>
+            <div className="pt-20 space-y-2">
+              <p className="text-xl md:text-3xl font-display font-bold text-blue-400 tracking-wider">
+                NIMRA COLLEGE OF ENGINEERING & TECHNOLOGY
+              </p>
+              <p className="text-slate-500 text-sm uppercase tracking-widest">
+                Department of Computer Science and Engineering
+              </p>
             </div>
           </div>
         </Slide>

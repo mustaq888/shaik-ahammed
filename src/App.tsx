@@ -787,19 +787,7 @@ export default function App() {
                 We have successfully developed an <span className="text-blue-400 font-bold">intelligent price comparison system</span> that significantly reduces user effort and time in finding the best deals. The platform provides a <span className="text-purple-400 font-bold">secure and reliable</span> environment for shopping and is highly scalable for future ML enhancements.
               </p>
               
-              <div className="flex justify-center gap-8 pt-8 border-t border-white/10">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-white">100%</p>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">Accuracy</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-white">4x</p>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">Faster Search</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-white">Secure</p>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">Transactions</p>
-                </div>
+              
               </div>
             </div>
           </div>

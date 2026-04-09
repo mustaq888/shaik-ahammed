@@ -1132,12 +1132,12 @@ export default function App() {
                 <div className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-white break-all">
                   <Globe className="text-blue-400 shrink-0" />
                   <a 
-                    href="https://my-deen-journey.vercel.app/" 
+                    href="https://wish-wine-gamma.vercel.app/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="hover:text-blue-400 transition-colors underline decoration-blue-500/30 underline-offset-8"
                   >
-                    https://my-deen-journey.vercel.app/
+                   https://wish-wine-gamma.vercel.app/
                   </a>
                 </div>
               </div>
@@ -1164,7 +1164,7 @@ export default function App() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="mt-8 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold flex items-center gap-2 mx-auto transition-all shadow-lg shadow-blue-500/25"
-                onClick={() => window.open('https://my-deen-journey.vercel.app/', '_blank')}
+                onClick={() => window.open('https://wish-wine-gamma.vercel.app/', '_blank')}
               >
                 Launch Application <ExternalLink size={18} />
               </motion.button>

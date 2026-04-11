@@ -553,48 +553,7 @@ export default function App() {
           </div>
         </Slide>
 
-        {/* 6.5. FEASIBILITY STUDY */}
-        <Slide id="feasibility">
-          <div className="text-center space-y-12">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-display font-bold">Feasibility Study</h2>
-              <p className="text-slate-400">Evaluating the project's viability</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Technical Feasibility",
-                  desc: "Python, Django, and BeautifulSoup are robust, well-documented, and perfectly suited for web scraping and backend management.",
-                  icon: <Cpu className="text-blue-400" />,
-                  color: "border-blue-500"
-                },
-                {
-                  title: "Economic Feasibility",
-                  desc: "The project utilizes open-source technologies, significantly reducing development costs while requiring minimal infrastructure.",
-                  icon: <TrendingUp className="text-green-400" />,
-                  color: "border-green-500"
-                },
-                {
-                  title: "Operational Feasibility",
-                  desc: "The intuitive UI ensures that users can easily navigate and compare prices without specialized training or technical knowledge.",
-                  icon: <Users className="text-purple-400" />,
-                  color: "border-purple-500"
-                }
-              ].map((item, i) => (
-                <div key={i} className={`glass-dark p-8 rounded-3xl border-t-4 ${item.color} space-y-6 hover:translate-y-[-8px] transition-all duration-300`}>
-                  <div className="mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Slide>
+       
 
         {/* 7. SYSTEM ARCHITECTURE */}
         <Slide id="architecture">

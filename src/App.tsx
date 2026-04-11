@@ -657,29 +657,7 @@ export default function App() {
 
         {/* 9. MODULES / FEATURES */}
         <Slide id="modules">
-          <div className="space-y-12">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-center">System Modules</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold flex items-center gap-3 text-blue-400">
-                  <Layers /> Admin Module
-                </h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {[
-                    { title: "Secure Login", desc: "Restricted access for system administrators." },
-                    { title: "Manage Products", desc: "Add, update, or remove products from the database." },
-                    { title: "View User Orders", desc: "Monitor and manage all customer transactions." },
-                    { title: "Feedback & Reports", desc: "Analyze user feedback and system performance." }
-                  ].map((item, i) => (
-                    <div key={i} className="glass p-4 rounded-xl border-l-4 border-blue-500/50">
-                      <h4 className="font-bold">{item.title}</h4>
-                      <p className="text-sm text-slate-500">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
+         
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold flex items-center gap-3 text-purple-400">
                   <Layers /> User Module
